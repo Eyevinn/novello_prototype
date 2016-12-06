@@ -14,7 +14,7 @@ var newchannel = require('./routes/newchannel');
 
 
 
-var db_init = require('./routes/db_init');
+var db_init = require('./db/db_init');
 
 var app = express();
 

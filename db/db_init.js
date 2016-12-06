@@ -21,3 +21,15 @@ function init_db(){
   seen.insert({username:"simon wallin", video: "test"});
   includes.insert({video:"test", channel: "news"});
 };
+
+function authenticate(user_username, user_password){
+  users.findOne({username: user_username}, function(e, result){
+    if(sha256(user_password) == result.password){
+      return true;
+    }else{
+      return false;
+    }
+  })
+};
+
+authenticate("simon wallin", "sw0049sw");
