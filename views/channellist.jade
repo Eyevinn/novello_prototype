@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1.
+        Your channels
+    
+    each channel, i in channellist
+        .channels
+            svg
+                polygon(points='50,14 50,186 200,100;')
+            p.channel-title= channel.Name

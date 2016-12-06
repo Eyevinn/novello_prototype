@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= title
+    
+    h4 Add Channel
+    form#formAddUser(name="adduser",method="post",action="/addchannel")
+        input#inputChannelName(type="text", placeholder="Name of channel", name="channelName")
+        button#btnSubmit(type="submit") Add
+    h4 Remove Channel
+    form#formRemoveChannel(name="removechannel",method="post",action="/removechannel")
+        input#inputChannelName(type="text", placeholder="Name of channel", name="channelName")
+        button#btnSubmit(type="submit") Remove
