@@ -15,23 +15,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.post("/", function(req, res){
-  //handle login info
   var _username = req.body.username;
   var _password = sha256(req.body.password);
   var users = db_init.db.collection("users");
   users.findOne({username:_username},function(e, result){
     if (e){
-    res.render("login");
+
+      res.redirect("/");
     }
     if(result.password == _password){
-      console.log("success");
+      req.session.user=_username;
       res.render("login");
     }else{
-      res.render("login");
+      res.redirect("/");
     }
 
   })
-
+  console.log(req.session);
 
 })
 
