@@ -22,14 +22,5 @@ function init_db(){
   channels.insert({channel:"General"});
 };
 
-function authenticate(user_username, user_password){
-  users.findOne({username: user_username}, function(e, result){
-    if(sha256(user_password) == result.password){
-      return true;
-    }else{
-      return false;
-    }
-  })
-};
-
-authenticate("simon wallin", "sw0049sw");
+exports.users = users;
+exports.db = db;
