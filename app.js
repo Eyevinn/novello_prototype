@@ -7,12 +7,10 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var newchannel = require('./routes/newchannel');
-
-
-
-
-
+var addchannel = require('./routes/addchannel');
+var removechannel = require('./routes/removechannel');
+var channellist = require('./routes/channellist');
+var test = require('./routes/test');
 
 var db_init = require('./db/db_init');
 
@@ -30,11 +28,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 app.use('/', index);
 app.use('/users', users);
-app.use('/newchannel', newchannel);
+app.use('/addchannel', addchannel);
+app.use('/removechannel', removechannel);
+app.use('/channellist', channellist);
+app.use('/test', test);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
