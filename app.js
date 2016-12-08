@@ -9,9 +9,6 @@ var session = require("express-session");
 
 
 var secret = require('./routes/secret');
-
-
-
 var index = require('./routes/index');
 var login = require('./routes/login');
 var users = require('./routes/users');
