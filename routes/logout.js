@@ -3,11 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  if(req.session.user){
-    res.redirect("/secret");
-  }else{
-    res.render('index');
-  }
+  console.log(req.session);
+  req.session.user= null;
+  console.log(req.session);
+  res.render('login');
 });
+
+
 
 module.exports = router;

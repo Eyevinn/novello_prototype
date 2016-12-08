@@ -1,13 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
-
-
 var db_init = require('../db/db_init');
-
 var sha256 = require('sha256');
 //console.log(db_init.authenticate("simon wallin","sw0049sw"));
-
 var bodyParser = require('body-parser');
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,24 +10,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.post("/", function(req, res){
+  console.log(req.session);
   var _username = req.body.username;
   var _password = sha256(req.body.password);
   var users = db_init.db.collection("users");
   users.findOne({username:_username},function(e, result){
     if (e){
-
-      res.redirect("/");
+      console.log(e);
+      res.render("login", {message: "Inloggningen misslyckades"});
     }
     if(result.password == _password){
+      console.log("correct");
       req.session.user=_username;
-      res.render("login");
+      res.redirect("/secret");
     }else{
-      res.redirect("/");
+      res.render("login", {message: "Inloggningen misslyckades"});
     }
-
   })
-  console.log(req.session);
-
 })
 
 module.exports = router;

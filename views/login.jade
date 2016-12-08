@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  h1= message
   form#login_form(action="/login" method="Post")
     input(type="text", name="username")
     input(type="password", name="password")

@@ -7,14 +7,11 @@ var bodyParser = require('body-parser');
 var session = require("express-session");
 
 
+var secret = require('./routes/secret');
 var index = require('./routes/index');
 var login = require('./routes/login');
 var users = require('./routes/users');
 var newchannel = require('./routes/newchannel');
-
-
-
-
 
 
 var db_init = require('./db/db_init');
@@ -35,12 +32,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({secret: 'ssshhhhh'}));
 
-
-
 app.use('/', index);
 app.use('/users', users);
 app.use('/newchannel', newchannel);
 app.use('/login', login);
+app.use('/secret', secret);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
