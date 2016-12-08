@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
-
+var bb = require("express-busboy");
 
 
 var secret = require('./routes/secret');
@@ -17,6 +17,7 @@ var removechannel = require('./routes/removechannel');
 var channellist = require('./routes/channellist');
 var test = require('./routes/test');
 var logout = require('./routes/logout');
+var upload = require('./routes/upload');
 
 
 var db_init = require('./db/db_init');
@@ -34,6 +35,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+bb.extend(app, {
+    upload: true,
+
+});
 
 
 app.use(session({secret: 'ssshhhhh'}));
@@ -44,10 +49,10 @@ app.use('/users', users);
 app.use('/addchannel', addchannel);
 app.use('/removechannel', removechannel);
 app.use('/channellist', channellist);
-app.use(session({secret: 'ssshhhhh'}));
 app.use('/login', login);
 app.use('/secret', secret);
 app.use('/logout', logout);
+app.use('/upload', upload);
 
 
 

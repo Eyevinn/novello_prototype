@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
       if(req.session.admin == true){
         res.render('secret', {admin: true});
       }else{
-        
+        res.render('secret', {admin: false});
       }
 
   }else{
