@@ -1,6 +1,6 @@
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/novello_prototype');
+var db = monk('localhost:27017/novello');
 var sha256 = require('sha256');
 
 var now = new Date();

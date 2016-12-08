@@ -9,10 +9,8 @@ var session = require("express-session");
 
 
 var secret = require('./routes/secret');
-var index = require('./routes/index');
-var login = require('./routes/login');
-var users = require('./routes/users');
-var newchannel = require('./routes/newchannel');
+
+
 
 var index = require('./routes/index');
 var login = require('./routes/login');
@@ -21,6 +19,7 @@ var addchannel = require('./routes/addchannel');
 var removechannel = require('./routes/removechannel');
 var channellist = require('./routes/channellist');
 var test = require('./routes/test');
+var logout = require('./routes/logout');
 
 
 var db_init = require('./db/db_init');
@@ -51,6 +50,7 @@ app.use('/channellist', channellist);
 app.use(session({secret: 'ssshhhhh'}));
 app.use('/login', login);
 app.use('/secret', secret);
+app.use('/logout', logout);
 
 
 
