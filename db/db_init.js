@@ -1,8 +1,6 @@
-
-
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/novello');
+var db = monk('localhost:27017/novello_prototype');
 var sha256 = require('sha256');
 
 var now = new Date();
@@ -12,6 +10,7 @@ var videos = db.collection("videos");
 var follows = db.collection("follows");
 var seen = db.collection("seen");
 var includes = db.collection("includes");
+var channels = db.collection("channels");
 
 
 function init_db(){
@@ -20,6 +19,7 @@ function init_db(){
   follows.insert({username: "simon wallin", channel: "news"});
   seen.insert({username:"simon wallin", video: "test"});
   includes.insert({video:"test", channel: "news"});
+  channels.insert({channel:"General"});
 };
 
 exports.users = users;

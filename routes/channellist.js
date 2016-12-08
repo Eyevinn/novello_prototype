@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/novello');
+var sha256 = require('sha256');
 
 /* GET CHANNELLIST PAGE */
-router.get('/channellist', function(req, res) {
-    var db = req.db;
-    var channels = db.get('Channels');
+router.get('/', function(req, res) {
+
+    var channels = db.get('channels');
 
     channels.find({},{},function(e,docs){
         res.render('channellist', {

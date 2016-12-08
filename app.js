@@ -7,11 +7,20 @@ var bodyParser = require('body-parser');
 var session = require("express-session");
 
 
+
 var secret = require('./routes/secret');
 var index = require('./routes/index');
 var login = require('./routes/login');
 var users = require('./routes/users');
 var newchannel = require('./routes/newchannel');
+
+var index = require('./routes/index');
+var login = require('./routes/login');
+var users = require('./routes/users');
+var addchannel = require('./routes/addchannel');
+var removechannel = require('./routes/removechannel');
+var channellist = require('./routes/channellist');
+var test = require('./routes/test');
 
 
 var db_init = require('./db/db_init');
@@ -30,13 +39,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use(session({secret: 'ssshhhhh'}));
+
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/newchannel', newchannel);
+app.use('/addchannel', addchannel);
+app.use('/removechannel', removechannel);
+app.use('/channellist', channellist);
+app.use(session({secret: 'ssshhhhh'}));
 app.use('/login', login);
 app.use('/secret', secret);
+
 
 
 
@@ -57,7 +72,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
 
 module.exports = app;
