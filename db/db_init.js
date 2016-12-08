@@ -13,6 +13,10 @@ var includes = db.collection("includes");
 var channels = db.collection("channels");
 
 
+db.collections(function(col){
+  console.log(col);
+})
+
 function init_db(){
   users.insert({username:"simon wallin", password:sha256("sw0049sw"), email:"simon.wallin@eyevinn.se", admin: true});
   videos.insert({path:"/uploads/test.mp4", length:120, user:"simon wallin", time: now, });
