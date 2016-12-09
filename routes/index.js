@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   if(req.session.user){
     res.redirect("/secret");
   }else{
-    res.render('index');
+    res.redirect('/login');
   }
 });
 
