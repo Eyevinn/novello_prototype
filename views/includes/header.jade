@@ -1,7 +1,11 @@
 nav.navbar.navbar-light.bg-faded
+
+  if online
+    a.logout-btn(href="/logout") Log out
+    .user-name= user
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#exCollapsingNavbar', aria-controls='exCollapsingNavbar', aria-expanded='false', aria-label='Toggle navigation')
   #exCollapsingNavbar.collapse
-  h1= user
+
     .text-muted.p-1
       if admin
         .nav-item-navlink admin

@@ -7,6 +7,15 @@ a {
   color: #00B7FF;
 }
 
+.user-name{
+  float: right;
+  margin-right: 15px;
+}
+
+.logout-btn{
+  float: right;
+}
+
 .channels {
 	background-color: rgba(190, 0, 190, 0.6);
 	height: 200px;

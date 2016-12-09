@@ -7,7 +7,6 @@ var sha256 = require('sha256');
 var bodyParser = require('body-parser');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("onjoin");
   if(req.session.user){
     res.redirect("/secret");
   }else{
@@ -16,9 +15,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post("/", function(req,res,next){
-  console.log(req.body);
-  db_init.users.insert({username:req.body.username, password:sha256(req.body.psw), email:req.body.email, admin: false});
-  res.redirect("/login");
+  db_init.users.insert({username:req.body.username, password:sha256(req.body.psw), email:req.body.email, admin: false}, function(){
+    res.redirect("/login");
+  });
 });
 
 
