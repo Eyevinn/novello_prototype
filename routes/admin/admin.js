@@ -12,8 +12,15 @@ router.get('/', function(req, res, next) {
     res.locals.user = req.session.user;
 
     db_init.channels.find({}, function(e, list){
-      res.render("admin", {"channels": list});
+      channels = list;
+      db_init.users.find({}, function(e, list){
+        users = list;
+        res.render("admin",{"users":users, "channels": channels});
+      });
     });
+
+    console.log(res.locals.channels);
+
   }else{
     res.send('Danger danger, authentication failed. Selfdestruct commencing');
   }

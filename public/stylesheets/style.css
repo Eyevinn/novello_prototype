@@ -8,8 +8,8 @@ a {
   color: #00B7FF;
 }
 
-.remove-link{
-  display: inline-block;
+.remove-input{
+  display: none;
 }
 
 .admin-list li{
