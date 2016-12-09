@@ -4,8 +4,8 @@ $(document).ready(function () {
 
     $(".channels").click(function() {   	
   		var channelID = $(this).attr("id");
-  		alert(channelID);
-  		channelID.css('background-color', 'blue');
+  		console.log(channelID);
+  		$(this).css('background-color', 'rgba(190, 0, 190, 0.05)');
 	});
 	
 	$("#redirect-to-add-new-channel-button").click(function() {   	
