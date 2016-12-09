@@ -1,14 +1,18 @@
 extends layout
 
 block content
-    h1.
-        Your channels
+    h1 Your channels
     
-    each channel, i in channellist
-        .channels(id=channel.channel)
-            svg
-                polygon(points='50,14 50,186 200,100;')
-            p.channel-title= channel.channel
-    div        
-        button.redirect-buttons#redirect-to-add-new-channel-button(type='submit') Add new channel
-        button.redirect-buttons#redirect-to-remove-channel-button(type='submit') Remove channel
+    div.col-lg-12.col-md-12.col-xs-12
+        each channel, i in channellist
+            div.col-lg-3.col-md-6.col-xs-6
+                .channels(id=channel.channel)
+                    svg
+                        polygon(points='70,30 70,270 295,150;')
+                    p.channel-title= channel.channel
+
+
+        div.col-md-12       
+            button.redirect-buttons#redirect-to-add-new-channel-button(type='submit') Add new channel
+        div.col-md-12 
+            button.redirect-buttons#redirect-to-remove-channel-button(type='submit') Remove channel
