@@ -14,8 +14,9 @@ var index = require('./routes/index');
 var login = require('./routes/user/login');
 var join = require('./routes/user/join');
 var users = require('./routes/users');
-var addchannel = require('./routes/addchannel');
-var removechannel = require('./routes/removechannel');
+var addchannel = require('./routes/admin/addchannel');
+var adduser = require('./routes/admin/adduser');
+var removechannel = require('./routes/admin/removechannel');
 var removeuser = require('./routes/admin/removeuser');
 var channellist = require('./routes/channellist');
 var test = require('./routes/test');
@@ -56,6 +57,7 @@ app.use('/logout', logout);
 app.use('/upload', upload);
 app.use('/join', join);
 app.use('/admin', admin);
+app.use('/adduser', adduser);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

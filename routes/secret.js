@@ -5,7 +5,7 @@ router.get('/', function(req, res, next) {
   if(req.session.user){
       res.locals.user = req.session.user;
       res.locals.online = true;
-      res.render('secret', {admin: req.session.admin});
+      res.render('secret');
   }else{
     res.redirect("/");
   }

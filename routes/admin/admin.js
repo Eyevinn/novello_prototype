@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
   if(req.session.user && req.session.admin){
     res.locals.user = req.session.user;
-
+    res.locals.online = true;
     db_init.channels.find({}, function(e, list){
       channels = list;
       db_init.users.find({}, function(e, list){
