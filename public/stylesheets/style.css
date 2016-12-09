@@ -37,6 +37,10 @@ a {
 	border-radius: 5px;
 	padding: 5px;
 }
+.redirect-buttons {
+	margin: 10px;
+	float: left;
+}
 svg {
 	height: 200px;
 	width: 200px;

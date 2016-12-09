@@ -12,12 +12,14 @@ router.get('/', function(req, res) {
 
 /* ADD CHANNEL TO DB */
 router.post('/', function(req, res) {
+    //Get channelname from view 
     var channelName = req.body.channelName;
-    console.log("Channel name: " + channelName);
-    console.log(db);
-    var channellist = db.get('channels');
-    console.log("Channel list: " + channellist);
 
+    //Get db acces 
+    var channellist = db.get('channels');
+    var includes = db.get('includes');
+
+    //add channelname to "channels" collection
     channellist.insert({
         "channel" : channelName,
     }, function (err, doc) {
@@ -28,6 +30,11 @@ router.post('/', function(req, res) {
             res.redirect("/channellist");
         }
     });
+    //add to "includes" collection
+    includes.insert({
+        "channel" : channelName,
+    });
+    console.log(includes);
 });
 
 module.exports = router;
