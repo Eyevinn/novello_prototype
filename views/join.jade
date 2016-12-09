@@ -1,0 +1,9 @@
+extends layout
+
+block content
+
+  form(method="post", action = "/join")
+    input.form-element(type="text", name="username", placeholder= "User name")
+    input.form-element(type="email", name="email", placeholder= "E-mail")
+    input.form-element(type="password", name="psw", placeholder= "password")
+    input.form-element(type="submit")
