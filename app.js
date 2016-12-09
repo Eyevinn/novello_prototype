@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
 var multer = require("multer");
-//var bb = require("express-busboy");
+var fileUpload = require('express-fileupload');
+
 
 var secret = require('./routes/secret');
 var index = require('./routes/index');
@@ -15,11 +16,13 @@ var join = require('./routes/user/join');
 var users = require('./routes/users');
 var addchannel = require('./routes/addchannel');
 var removechannel = require('./routes/removechannel');
+var removeuser = require('./routes/admin/removeuser');
 var channellist = require('./routes/channellist');
 var test = require('./routes/test');
 var logout = require('./routes/user/logout');
 var upload = require('./routes/upload');
-var fileUpload = require('express-fileupload');
+var admin = require('./routes/admin/admin');
+
 
 var db_init = require('./db/db_init');
 var app = express();
@@ -45,12 +48,14 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/addchannel', addchannel);
 app.use('/removechannel', removechannel);
+app.use('/removeuser', removeuser);
 app.use('/channellist', channellist);
 app.use('/login', login);
 app.use('/secret', secret);
 app.use('/logout', logout);
 app.use('/upload', upload);
 app.use('/join', join);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

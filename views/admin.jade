@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1 Admin
+  ul.admin-list
+    each channel, i in channels
+      li
+        p= channel.channel
+      form.inline-block(method="Post", action="/removechannel")
+        input.remove-input(type="hidden", name="channelName", value=channel.channel)
+        input.remove-link(type="submit", value="remove")
+      br
+
+  ul.admin-list
+    each user, i in users
+      li
+        p= user.username
+      form.inline-block(method="Post", action="/removeuser")
+        input.remove-input(type="hidden", name="userName", value=user.username)
+        input.remove-link(type="submit", value="remove")
+        if user.admin
+          a.admin-text admin
+      br

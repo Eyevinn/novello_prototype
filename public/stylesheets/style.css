@@ -1,12 +1,24 @@
 body {
   padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  text-align: center;
   vertical-align: middle;
 }
 
 a {
   color: #00B7FF;
+}
+
+.remove-input{
+  display: none;
+}
+
+.admin-list li{
+  display: inline-block;
+}
+
+.admin-list form{
+  display: inline-block;
+  margin-left: 25px;
 }
 
 .user-name{

@@ -13,11 +13,11 @@ var sha256 = require('sha256');
 /* REMOVE CHANNEL FROM DB */
 router.post('/', function(req, res) {
 
-    var channelName = req.body.channelName;
-    var channellist = db.get('channels');
-    console.log(channelName);
+    var userName = req.body.userName;
+    var channellist = db.get('users');
+
     channellist.remove({
-        "channel" : channelName,
+        "username" : userName,
     }, function (err, doc) {
         if (err) {
             res.send("No such name in the database!");
