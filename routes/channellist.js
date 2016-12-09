@@ -9,12 +9,15 @@ var sha256 = require('sha256');
 router.get('/', function(req, res) {
 
     var channels = db.get('channels');
-
+    var includes = db.get('includes');
+    
     channels.find({},{},function(e,docs){
         res.render('channellist', {
             "channellist" : docs
         });
     });
+
+
 });
 
 module.exports = router;
