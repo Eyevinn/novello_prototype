@@ -9,7 +9,7 @@ router.post('/', function(req, res) {
     sampleFile = req.files.upl;
     sampleFile.mv('./uploads/' + sampleFile.name, function(err) {
         if (err) {
-            res.status(500).send(err);
+            res.redirect();
         }
         else {
             res.send('File uploaded!');
