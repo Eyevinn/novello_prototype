@@ -8,24 +8,30 @@ a {
 }
 
 .channels {
-	background-color: #be00be;
+	background-color: rgba(190, 0, 190, 0.6);
 	height: 200px;
 	width: 200px;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 0;
 	border-color: #000000;
 	border-radius: 50%;
 	overflow: hidden;
 	display: inline-block;
 	margin: 25px;
 	position: relative;
+	-webkit-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.5);
+    box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.5);
 }
 
 .channel-title {
 	font-size: 2em;
+	color: rgba(255,255,255,1);
 	bottom: 30%;
 	left: 30%;
 	position: absolute;
+	text-transform: capitalize;
+	text-shadow: 2px 2px rgba(0,0,0,0.25);
 }
 .button {
 	height: 20px;
@@ -46,8 +52,9 @@ svg {
 	width: 200px;
 }
 polygon {
-	stroke-width: 1;
+	stroke-width: 0;
 	position:relative;
 	stroke: #000000;
+  fill: rgba(190, 0, 190, 0.7) !important;
 	fill: #ff00ff;
 }
