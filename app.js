@@ -10,13 +10,14 @@ var multer = require("multer");
 
 var secret = require('./routes/secret');
 var index = require('./routes/index');
-var login = require('./routes/login');
+var login = require('./routes/user/login');
+var join = require('./routes/user/join');
 var users = require('./routes/users');
 var addchannel = require('./routes/addchannel');
 var removechannel = require('./routes/removechannel');
 var channellist = require('./routes/channellist');
 var test = require('./routes/test');
-var logout = require('./routes/logout');
+var logout = require('./routes/user/logout');
 var upload = require('./routes/upload');
 var fileUpload = require('express-fileupload');
 
@@ -35,9 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//bb.extend(app, {
-//    upload: true,
-//});
+
 app.use(fileUpload());
 
 app.use(session({secret: 'ssshhhhh'}));
@@ -51,6 +50,7 @@ app.use('/login', login);
 app.use('/secret', secret);
 app.use('/logout', logout);
 app.use('/upload', upload);
+app.use('/join', join);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
