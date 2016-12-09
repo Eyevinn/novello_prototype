@@ -1,6 +1,6 @@
 nav.navbar.navbar-light.bg-faded
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#exCollapsingNavbar', aria-controls='exCollapsingNavbar', aria-expanded='false', aria-label='Toggle navigation')
   #exCollapsingNavbar.collapse
-    .bg-inverse.text-muted.p-1
-      h4 Collapsed content
-      span.text-muted Toggleable via the navbar brand.
+    .text-muted.p-1
+      if admin
+        .nav-item-navlink admin
