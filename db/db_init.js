@@ -14,7 +14,6 @@ var channels = db.collection("channels");
 
 users.index({username: 1}, {unique: true});
 channels.index({channel: 1}, {unique: true});
-
 function init_db(){
   users.insert({username:"simon wallin", password:sha256("sw0049sw"), email:"simon.wallin@eyevinn.se", admin: true});
   videos.insert({path:"/uploads/test.mp4", length:120, user:"simon wallin", time: now, });
@@ -26,3 +25,4 @@ function init_db(){
 
 exports.users = users;
 exports.db = db;
+exports.channels = channels;

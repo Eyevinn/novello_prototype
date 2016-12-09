@@ -8,6 +8,19 @@ a {
   color: #00B7FF;
 }
 
+.remove-link{
+  display: inline-block;
+}
+
+.admin-list li{
+  display: inline-block;
+}
+
+.admin-list form{
+  display: inline-block;
+  margin-left: 25px;
+}
+
 .user-name{
   float: right;
   margin-right: 15px;

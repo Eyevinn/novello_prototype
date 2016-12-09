@@ -2,3 +2,10 @@ extends layout
 
 block content
   h1 Admin
+  ul.admin-list
+    each channel, i in channels
+      li
+        p= channel.channel
+      form.inline-block(method="Post", action="/removechannel")
+        input.remove-link(type="submit", name="channelName", value=channel.channel)
+      br

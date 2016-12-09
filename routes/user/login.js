@@ -7,7 +7,7 @@ var sha256 = require('sha256');
 var bodyParser = require('body-parser');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var auto_login = false;
+  var auto_login = true;
   if(auto_login){
     req.session.user = "simon wallin"; // added during dev in order to be able to skip login.
     req.session.admin = true;

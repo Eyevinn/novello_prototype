@@ -10,8 +10,10 @@ router.get('/', function(req, res, next) {
 
   if(req.session.user && req.session.admin){
     res.locals.user = req.session.user;
-    
-    res.render("admin");
+
+    db_init.channels.find({}, function(e, list){
+      res.render("admin", {"channels": list});
+    });
   }else{
     res.send('Danger danger, authentication failed. Selfdestruct commencing');
   }
