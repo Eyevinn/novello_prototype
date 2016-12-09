@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
-var bb = require("express-busboy");
-
+var multer = require("multer");
+//var bb = require("express-busboy");
 
 var secret = require('./routes/secret');
 var index = require('./routes/index');
@@ -18,10 +18,9 @@ var channellist = require('./routes/channellist');
 var test = require('./routes/test');
 var logout = require('./routes/logout');
 var upload = require('./routes/upload');
-
+var fileUpload = require('express-fileupload');
 
 var db_init = require('./db/db_init');
-
 var app = express();
 
 // view engine setup
@@ -33,16 +32,15 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-bb.extend(app, {
-    upload: true,
-
-});
-
+//bb.extend(app, {
+//    upload: true,
+//});
+app.use(fileUpload());
 
 app.use(session({secret: 'ssshhhhh'}));
-
 
 app.use('/', index);
 app.use('/users', users);
@@ -53,9 +51,6 @@ app.use('/login', login);
 app.use('/secret', secret);
 app.use('/logout', logout);
 app.use('/upload', upload);
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,7 +64,6 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   // render the error page
   res.status(err.status || 500);
   res.render('error');
