@@ -5,10 +5,8 @@ block content
     
     div.col-lg-12.col-md-12.col-xs-12
         each channel, i in channellist
-            div.col-lg-3.col-md-6.col-xs-6
-                .channels(id=channel.channel)
-                    svg
-                        polygon(points='70,30 70,270 295,150;')
+            div.col-lg-4.col-md-6.col-xs-6
+                .channels(id=channel.channel, style='background-color: randomColor;')
                     p.channel-title= channel.channel
 
 
