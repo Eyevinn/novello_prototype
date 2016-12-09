@@ -33,7 +33,7 @@ router.post("/", function(req, res){
       res.render("login", {message: "Inloggningen misslyckades"});
     }
     if(result.password == _password){
-      console.log("correct");
+
       req.session.user=_username;
       req.session.admin=result.admin;
       res.redirect("/secret");
