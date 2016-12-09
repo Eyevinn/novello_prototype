@@ -12,12 +12,10 @@ router.get('/', function(req, res) {
     var includes = db.get('includes');
     
     channels.find({},{},function(e,docs){
-        res.render('channellist', {
-            "channellist" : docs
-        });
+        res.render('channellist', {"channellist" : docs});
     });
-
-
 });
 
 module.exports = router;
+
+
