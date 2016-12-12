@@ -15,8 +15,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.post("/", function(req,res,next){
-  db_init.users.insert({username:req.body.username, password:sha256(req.body.psw), email:req.body.email, admin: false}, function(){
-    res.redirect("/login");
+  if(req.body.admin){
+    admin = true;
+  }else{
+    admin=false;
+  }
+  db_init.users.insert({username:req.body.username, password:sha256(req.body.psw), email:req.body.email, admin: admin}, function(){
+    if(admin){
+      res.redirect("/admin");
+    }else{
+      res.redirect("/login");
+    }
+
   });
 });
 

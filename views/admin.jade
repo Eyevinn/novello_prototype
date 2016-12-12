@@ -21,8 +21,16 @@ block content
         if user.admin
           a.admin-text admin
       br
-      
+
   h4 Add Channel
-  form#formAddUser(name="adduser",method="post",action="/addchannel")
+  form#formAddUser(name="addchannel",method="post",action="/addchannel")
       input#inputChannelName(type="text", placeholder="Name of channel", name="channelName")
+      button#btnSubmit(type="submit") Add
+
+  h4 Add User
+  form#formAddUser(name="adduser",method="post",action="/join")
+      input#inputUserName(type="text", placeholder="username", name="username")
+      input(type="email", placeholder="email", name="email")
+      input(type="password", placeholder="password", name="psw")
+      input(type="checkbox", value=false, name="admin" )
       button#btnSubmit(type="submit") Add
