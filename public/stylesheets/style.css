@@ -8,13 +8,29 @@ a {
   color: #00B7FF;
 }
 
-input[type=submit] {
-    padding:5px 15px;
+input[type=file] {
     background:#ccc;
     border:0 none;
     cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    opacity: 0;
+    position: absolute;
+}
+
+.file-label{
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+
+
+.upload-form{
+  position: relative;
 }
 
 .remove-input{
