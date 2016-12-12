@@ -16,7 +16,7 @@ function checkDirectorySync(directory) {
 }
 
 router.post('/', function(req, res) {
-    req.session.channel = "Test3";
+    req.session.channel = "testchannel";
     var videos= db.get("videos");
     var includes = db.get("includes");
     var sampleFile;
@@ -33,7 +33,7 @@ router.post('/', function(req, res) {
             res.send('File uploaded!');
         }
     });
-    videos.insert({path:'./public/uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });
-    includes.insert({video:'./public/uploads/' + req.session.user+"/"+ sampleFile.name , channel: req.session.channel});
+    videos.insert({path:'/uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });
+    includes.insert({video:'/uploads/' + req.session.user+"/"+ sampleFile.name , channel: req.session.channel});
 });
 module.exports = router;

@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1 Admin
+  h2 channels
   ul.admin-list
     each channel, i in channels
       li
@@ -10,7 +11,7 @@ block content
         input.remove-input(type="hidden", name="channelName", value=channel.channel)
         input.remove-link(type="submit", value="remove")
       br
-
+  h2 users
   ul.admin-list
     each user, i in users
       li

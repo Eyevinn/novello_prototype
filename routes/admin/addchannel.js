@@ -36,9 +36,7 @@ router.post('/', function(req, res) {
         }
     });
     //add to "includes" collection
-    includes.insert({
-        "channel" : channelName,
-    });
+    
     console.log(includes);
 });
 
