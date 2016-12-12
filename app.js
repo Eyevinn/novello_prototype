@@ -9,6 +9,7 @@ var multer = require("multer");
 var fileUpload = require('express-fileupload');
 
 
+
 var secret = require('./routes/secret');
 var index = require('./routes/index');
 var login = require('./routes/user/login');
@@ -40,7 +41,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(fileUpload());
 
 app.use(session({secret: 'ssshhhhh'}));
