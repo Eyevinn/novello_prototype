@@ -25,6 +25,8 @@ var logout = require('./routes/user/logout');
 var upload = require('./routes/upload');
 var admin = require('./routes/admin/admin');
 var streamer = require("./routes/streamer.js");
+var video = require("./routes/video.js");
+var drop_db = require("./routes/admin/drop_database.js");
 
 
 var db_init = require('./db/db_init');
@@ -60,6 +62,8 @@ app.use('/join', join);
 app.use('/admin', admin);
 app.use('/adduser', adduser);
 app.use('/streamer', streamer);
+app.use('/video', video);
+app.use('/delete', drop_db);
 
 
 

@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 router.get('/', function(req, res, next) {
   var auto_login = true;
   if(auto_login){
-    req.session.user = "simon wallin"; // added during dev in order to be able to skip login.
+    req.session.user = "simonwallin"; // added during dev in order to be able to skip login.
     req.session.admin = true;
   }
   if(req.session.user){

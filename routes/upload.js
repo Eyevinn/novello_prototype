@@ -21,11 +21,11 @@ router.post('/', function(req, res) {
     var includes = db.get("includes");
     var sampleFile;
     sampleFile = req.files.upl;
-    console.log(sampleFile);
-    dir = "./uploads/"+req.session.user;
+    console.log(req.session.user);
+    dir = "./public/uploads/"+req.session.user;
     channel = req.session.channel;
     checkDirectorySync(dir);
-    sampleFile.mv('./uploads/' + req.session.user+"/"+ sampleFile.name, function(err) {
+    sampleFile.mv('./public/uploads/' + req.session.user+"/"+ sampleFile.name, function(err) {
         if (err) {
             res.send("Upload failed" + err);
         }
@@ -33,7 +33,7 @@ router.post('/', function(req, res) {
             res.send('File uploaded!');
         }
     });
-    videos.insert({path:'./uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });
-    includes.insert({video:'./uploads/' + req.session.user+"/"+ sampleFile.name , channel: req.session.channel});
+    videos.insert({path:'./public/uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });
+    includes.insert({video:'./public/uploads/' + req.session.user+"/"+ sampleFile.name , channel: req.session.channel});
 });
 module.exports = router;
