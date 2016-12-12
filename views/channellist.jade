@@ -1,11 +1,14 @@
 extends layout
 
 block content
-    h1 Your channels
+    div.page-heading
+      h1 Your channels
     
-    div.col-lg-12.col-md-12.col-xs-12
+    div#channellist-container.col-lg-12.col-md-12.col-xs-12
         each channel, i in channellist
             div.col-lg-4.col-md-6.col-xs-6
-                .channels(id=channel.channel, style='background-color: channel.color')
+                .channels(id=channel.channel, style='background-color: {channel.color}')
                     p.channel-title= channel.channel
+
+include includes/footer
 

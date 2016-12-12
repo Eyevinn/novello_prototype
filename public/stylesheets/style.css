@@ -1,14 +1,16 @@
 body {
   padding: 0;
+  padding-bottom: 70px; 
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   vertical-align: middle;
 }
+
 
 a {
   color: #00B7FF;
 }
 h1,h2,h3,h4,h5 {
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.05rem;
   font-weight: 600 !important;
 }
 .col-lg-12 .col-md-12 .col-xs-12 {
@@ -45,6 +47,16 @@ input[type=file] {
   	background: -moz-linear-gradient(bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.1)); /* For Firefox 3.6 to 15 */
   	background: linear-gradient(to bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.1)); /* Standard syntax */
 }
+#channellist-container {
+  text-align: center;
+  vertical-align: middle;
+}
+.record-video-section {
+  background-color: rgba(0,0,0,0.5);
+}
+.navbar-fixed-bottom {
+  width: 100%
+}
 form {
     margin: 5px 5px;
 }
@@ -52,7 +64,7 @@ hr {
   margin: 0 !important;
 }
 input[type=text] {
-  width: auto;
+  width: 60%;
 }
 ul {
   margin: 0 !important;
@@ -130,15 +142,15 @@ ul {
   vertical-align: middle;
   text-align: center;
 	background-color: rgba(190, 0, 190, 0.7);
-	height: 400px;
-	width: 400px;
+	height: 140px;
+	width: 140px;
 	border-style: solid;
 	border-width: 0;
 	border-color: #000000;
 	border-radius: 50%;
 	overflow: hidden;
 	display: inline-block;
-	margin: 25px;
+	margin: 5px;
 	position: relative;
 	-webkit-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
     -moz-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
@@ -148,9 +160,9 @@ ul {
 .channels:before {
   content: '';
   display: block;
-  border-top: solid 160px transparent;
-  border-left: solid 290px rgba(0, 0, 0, 0.3);
-  border-bottom: solid 160px transparent;
+  border-top: solid 56px transparent;
+  border-left: solid 101px rgba(0, 0, 0, 0.3);
+  border-bottom: solid 56px transparent;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -159,11 +171,11 @@ ul {
 
 .channel-title {
 	z-index: 100;
-	font-size: 3.5em;
+	font-size: 1.8em;
 	color: rgba(255,255,255,1);
 	position: absolute;
-	left: 30%;
-	bottom: 35%;
+	left: 25%;
+	bottom: 25%;
 	text-transform: capitalize;
 	text-shadow: 2px 2px rgba(0,0,0,0.7);
 }
