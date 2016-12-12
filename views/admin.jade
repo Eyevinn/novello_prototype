@@ -1,7 +1,9 @@
 extends layout
 
 block content
-
+  div.page-heading
+    h1 ADMIN PAGE
+    hr
   div.admin-page-container.col-lg-12.col-md-12.col-xs-12
 
     div.col-lg-6.col-md-12  
@@ -27,17 +29,19 @@ block content
     
     div.admin-page.col-lg-6.col-md-12
      #adminDiv
-      h4 Admin
+      h4 Admins
       hr
     
       ul.admin-list
         each user, i in users
+         div.admin-item
           li
             p.user-name= user.username
+
           form.inline-block(method="Post", action="/removeuser")
             input.remove-input(type="hidden", name="userName", value=user.username)
             input.user-buttons.remove-link(type="submit", value="Delete")
-            if user.admin
-              a.admin-text admin
+        if user.admin
+          a.admin-text admin
 
 

@@ -7,6 +7,10 @@ body {
 a {
   color: #00B7FF;
 }
+h1,h2,h3,h4,h5 {
+  letter-spacing: 0.2rem;
+  font-weight: 600 !important;
+}
 .col-lg-12 .col-md-12 .col-xs-12 {
   padding: 0 !important;
 }
@@ -48,19 +52,30 @@ hr {
   margin: 0 !important;
 }
 input[type=text] {
-  width: 50%;
+  width: auto;
 }
 ul {
   margin: 0 !important;
 }
+.page-heading {
+  text-align: center;
+  padding: 1%
+}
+
 #btnSubmit {
   float: right;
 }
 .removeChannelList{
   width: 100%
 }
+.admin-item {
+  width: 100%;
+}
 .removeChannelList:hover {
   background-color: rgba(0,0,0,0.05);
+}
+.admin-item:hover {
+  background-color: rgba(0,0,0,0.05);  
 }
 .removeChannelList form {
   float: right;
@@ -99,10 +114,10 @@ ul {
 .admin-list form{
   display: inline-block;
   margin-left: 1px;
+  float: right;
 }
 
 .user-name{
-  float: right;
   margin-right: 1px;
 }
 
