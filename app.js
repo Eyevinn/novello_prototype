@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require("express-session");
 var multer = require("multer");
 var fileUpload = require('express-fileupload');
-
+var vidStreamer = require("vid-streamer");
 
 
 var secret = require('./routes/secret');
@@ -24,6 +24,7 @@ var test = require('./routes/test');
 var logout = require('./routes/user/logout');
 var upload = require('./routes/upload');
 var admin = require('./routes/admin/admin');
+var streamer = require("./routes/streamer.js");
 
 
 var db_init = require('./db/db_init');
@@ -58,6 +59,9 @@ app.use('/upload', upload);
 app.use('/join', join);
 app.use('/admin', admin);
 app.use('/adduser', adduser);
+app.use('/streamer', streamer);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,6 +69,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
