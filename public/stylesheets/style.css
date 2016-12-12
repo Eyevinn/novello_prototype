@@ -52,10 +52,12 @@ input[type=file] {
   vertical-align: middle;
 }
 .record-video-section {
-  background-color: rgba(0,0,0,0.5);
+  text-align: center;
+  vertical-align: middle;
 }
 .navbar-fixed-bottom {
   width: 100%
+  background-color: rgba(0,0,0,0.5);
 }
 form {
     margin: 5px 5px;
