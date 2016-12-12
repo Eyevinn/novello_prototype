@@ -6,6 +6,15 @@ router.get('/newchannel', function(req, res) {
     res.render('newchannel', { title: 'Add/Remove Channel' });
 });
 
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
 /* POST to Add User Service */
 router.post('/addchannel', function(req, res) {
 
@@ -20,7 +29,8 @@ router.post('/addchannel', function(req, res) {
 
     // Submit to the DB
     channellist.insert({
-        "Name" : channelName,
+        "channel" : channelName,
+        "color" : randomColor();
     }, function (err, doc) {
         if (err) {
             // If it failed, return error
@@ -34,7 +44,7 @@ router.post('/addchannel', function(req, res) {
         }
     });
     channellist.remove({
-        "Name" : channelName,
+        "channel" : channelName,
     }, function (err, doc) {
         if (err) {
             res.send("No such name in the database!");
@@ -52,7 +62,7 @@ router.post('/removechannel', function(req, res) {
 
     // REMOVE FROM DB
     channellist.remove({
-        "Name" : channelName,
+        "channel" : channelName,
     }, function (err, doc) {
         if (err) {
             res.send("No such name in the database!");

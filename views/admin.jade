@@ -1,28 +1,43 @@
 extends layout
 
 block content
-  h1 Admin
-  ul.admin-list
-    each channel, i in channels
-      li
-        p= channel.channel
-      form.inline-block(method="Post", action="/removechannel")
-        input.remove-input(type="hidden", name="channelName", value=channel.channel)
-        input.remove-link(type="submit", value="remove")
-      br
 
-  ul.admin-list
-    each user, i in users
-      li
-        p= user.username
-      form.inline-block(method="Post", action="/removeuser")
-        input.remove-input(type="hidden", name="userName", value=user.username)
-        input.remove-link(type="submit", value="remove")
-        if user.admin
-          a.admin-text admin
-      br
-      
-  h4 Add Channel
-  form#formAddUser(name="adduser",method="post",action="/addchannel")
-      input#inputChannelName(type="text", placeholder="Name of channel", name="channelName")
-      button#btnSubmit(type="submit") Add
+  div.admin-page-container.col-lg-12.col-md-12.col-xs-12
+
+    div.col-lg-6.col-md-12  
+     div.admin-page#addChannelDiv
+      h4 Add Channel
+      hr
+      form#formAddUser(name="adduser",method="post",action="/addchannel")
+          input#inputChannelName(type="text", placeholder="Name of channel", name="channelName", style="font-style: italic;")
+          button.user-buttons#btnSubmit(type="submit") Add
+     
+     div.admin-page#RemoveChannelDiv 
+      h4 Remove Channel
+      hr    
+      ul.admin-list
+        each channel, i in channels
+         div.removeChannelList
+          li
+            p.admin-channels= channel.channel
+          
+          form#formRemoveChannel.inline-block(method="Post", action="/removechannel")
+            input.remove-input(type="hidden", name="channelName", value=channel.channel)
+            input.user-buttons.remove-link(type="submit", value="Delete")
+    
+    div.admin-page.col-lg-6.col-md-12
+     #adminDiv
+      h4 Admin
+      hr
+    
+      ul.admin-list
+        each user, i in users
+          li
+            p.user-name= user.username
+          form.inline-block(method="Post", action="/removeuser")
+            input.remove-input(type="hidden", name="userName", value=user.username)
+            input.user-buttons.remove-link(type="submit", value="Delete")
+            if user.admin
+              a.admin-text admin
+
+

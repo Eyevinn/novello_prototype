@@ -7,6 +7,9 @@ body {
 a {
   color: #00B7FF;
 }
+.col-lg-12 .col-md-12 .col-xs-12 {
+  padding: 0 !important;
+}
 
 input[type=file] {
     background:#ccc;
@@ -26,29 +29,81 @@ input[type=file] {
   background-color: red;
   border-radius: 50%;
 }
-
-
-
+.admin-page {
+	padding: 10px;
+	border-radius: 10px;
+  border-style: solid; 
+  border-color: #ffffff;
+  border-width: 1px;
+	background: red; /* For browsers that do not support gradients */
+  	background: -webkit-linear-gradient(left top, rgba(0,0,0,0.05), rgba(0,0,0,0.1)); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.1)); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.1)); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to bottom right, rgba(0,0,0,0.05), rgba(0,0,0,0.1)); /* Standard syntax */
+}
+form {
+    margin: 5px 5px;
+}
+hr {
+  margin: 0 !important;
+}
+input[type=text] {
+  width: 50%;
+}
+ul {
+  margin: 0 !important;
+}
+#btnSubmit {
+  float: right;
+}
+.removeChannelList{
+  width: 100%
+}
+.removeChannelList:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+.removeChannelList form {
+  float: right;
+}
+.admin-page-container {
+  padding: 0 !important;
+}
+#addChannelDiv, #removeChannelDiv, #adminDiv {
+  padding: 10px;
+}
 .upload-form{
   position: relative;
+}
+.user-name {
+	text-transform: capitalize;
+}
+.admin-channels {
+  text-transform: capitalize;  
+}
+.user-buttons {
+  width: 100px;
 }
 
 .remove-input{
   display: none;
+  width: 50%
+}
+.admin-list {
 }
 
 .admin-list li{
   display: inline-block;
+  margin-left: 0 !important;
 }
 
 .admin-list form{
   display: inline-block;
-  margin-left: 25px;
+  margin-left: 1px;
 }
 
 .user-name{
   float: right;
-  margin-right: 15px;
+  margin-right: 1px;
 }
 
 .logout-btn{
@@ -57,8 +112,8 @@ input[type=file] {
 
 .channels {
 	display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+  vertical-align: middle;
+  text-align: center;
 	background-color: rgba(190, 0, 190, 0.7);
 	height: 400px;
 	width: 400px;

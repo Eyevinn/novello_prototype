@@ -9,6 +9,14 @@ var sha256 = require('sha256');
 //router.get('/', function(req, res) {
 //    res.render('addchannel', { title: 'Add Channel' });
 //});
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
 
 /* ADD CHANNEL TO DB */
 router.post('/', function(req, res) {
@@ -22,6 +30,7 @@ router.post('/', function(req, res) {
     //add channelname to "channels" collection
     channellist.insert({
         "channel" : channelName,
+        "color" : getRandomColor()
     }, function (err, doc) {
         if (err) {
             res.send("There was a problem adding the information to the database.");

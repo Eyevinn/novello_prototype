@@ -20,7 +20,7 @@ function init_db(){
   follows.insert({username: "simon wallin", channel: "news"});
   seen.insert({username:"simon wallin", video: "test"});
   includes.insert({video:"test", channel: "news"});
-  channels.insert({channel:"General"});
+  channels.insert({channel:"General", color: "#ff0000"});
 };
 
 
