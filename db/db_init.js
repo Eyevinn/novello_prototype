@@ -23,6 +23,8 @@ function init_db(){
   channels.insert({channel:"General"});
 };
 
+
+
 exports.users = users;
 exports.db = db;
 exports.channels = channels;
