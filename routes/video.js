@@ -16,18 +16,36 @@ var bodyParser = require('body-parser');
 
 
 router.get('/', function(req, res, next){
-  console.log(req.query);
+  //console.log(req.query);
   includes = db.get("includes");
+  seen = db.get("seen");
   includes.find({"channel": req.query.channel},function(err, result){
-    var list= result.toArray();
-    console.log(list);
+    seen.find({"user": req.session.user}, function(err, result2){
+      video_list = [];
+      for(i = 0; i < result.length; i++){
+        for(x=0; x<result2.length; x++){
 
-    res.render("video", {"src": result})
+          if(result[i].video == result2[x].video){
+            video_list.push(result[i].video);
+          }
+        }
+
+        //includes_list.push(result[i].video);
+      }
+
+      console.log(video_list);
+      res.render("video", {"src": video_list})
+      //console.log(result.toArray());
+      //console.log(result2.toArray());
+    })
+
   })
-
-
 });
 
+router.post("/", function(req, res, next){
+  seen = db.get("seen");
+  //seen.insert({"user":req.session.user, "video": req.body.video })
+})
 
 
 module.exports = router;

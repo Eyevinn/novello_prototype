@@ -34,16 +34,26 @@ block content
 
      ul.admin-list
        each user, i in users
-        div.admin-item
-         li
-           p.user-name= user.username
+        if user.admin
+          div.admin-item
+           li
+             p.user-name= user.username
 
-         form.inline-block(method="Post", action="/removeuser")
-           input.remove-input(type="hidden", name="userName", value=user.username)
-           input.user-buttons.remove-link(type="submit", value="Delete")
-       if user.admin
-         a.admin-text admin
+           form.inline-block(method="Post", action="/removeuser")
+             input.remove-input(type="hidden", name="userName", value=user.username)
+             input.user-buttons.remove-link(type="submit", value="Delete")
+
 
     div.admin-page#userDiv
      h4 Users
      hr
+     ul.admin-list
+       each user, i in users
+        if(user.admin === false)
+          div.admin-item
+           li
+             p.user-name= user.username
+
+           form.inline-block(method="Post", action="/removeuser")
+             input.remove-input(type="hidden", name="userName", value=user.username)
+             input.user-buttons.remove-link(type="submit", value="Delete")
