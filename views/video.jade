@@ -1,4 +1,6 @@
 extends layout
 
 block content
-    video(src= src, controls)
+    video(controls)
+      each item, i in src
+        source(data=item.video)

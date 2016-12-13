@@ -19,7 +19,10 @@ router.get('/', function(req, res, next){
   console.log(req.query);
   includes = db.get("includes");
   includes.find({"channel": req.query.channel},function(err, result){
-    res.render("video", {"src": result[0].video})
+    var list= result.toArray();
+    console.log(list);
+
+    res.render("video", {"src": result})
   })
 
 
