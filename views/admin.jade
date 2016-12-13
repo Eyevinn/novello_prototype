@@ -27,8 +27,8 @@ block content
             input.remove-input(type="hidden", name="channelName", value=channel.channel)
             input.user-buttons.remove-link(type="submit", value="Delete")
     
-    div.admin-page.col-lg-6.col-md-12
-     #adminDiv
+    div.col-lg-6.col-md-12
+     div.admin-page#adminDiv
       h4 Admins
       hr
     
@@ -43,5 +43,9 @@ block content
             input.user-buttons.remove-link(type="submit", value="Delete")
         if user.admin
           a.admin-text admin
+
+     div.admin-page#userDiv
+      h4 Users
+      hr
 
 
