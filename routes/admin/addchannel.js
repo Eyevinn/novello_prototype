@@ -46,9 +46,9 @@ router.post('/', function(req, res) {
                 }
             });
             //add to "includes" collection
-            //includes.insert({
-            //    "channel" : channelName,
-            //});
+            includes.insert({
+                "channel" : channelName,
+            });
             console.log(includes);
         }
         else {
@@ -56,7 +56,10 @@ router.post('/', function(req, res) {
         }
 
     });
+    //add to "includes" collection
 
-});
+
+
+
 
 module.exports = router;
