@@ -20,6 +20,7 @@ var adduser = require('./routes/admin/adduser');
 var removechannel = require('./routes/admin/removechannel');
 var removeuser = require('./routes/admin/removeuser');
 var channellist = require('./routes/channellist');
+var sendtochannel = require('./routes/sendtochannel');
 var test = require('./routes/test');
 var logout = require('./routes/user/logout');
 var upload = require('./routes/upload');
@@ -27,7 +28,6 @@ var admin = require('./routes/admin/admin');
 var streamer = require("./routes/streamer.js");
 var video = require("./routes/video.js");
 var drop_db = require("./routes/admin/drop_database.js");
-
 
 var db_init = require('./db/db_init');
 var app = express();
@@ -54,6 +54,7 @@ app.use('/addchannel', addchannel);
 app.use('/removechannel', removechannel);
 app.use('/removeuser', removeuser);
 app.use('/channellist', channellist);
+app.use('/sendtochannel', sendtochannel);
 app.use('/login', login);
 app.use('/secret', secret);
 app.use('/logout', logout);

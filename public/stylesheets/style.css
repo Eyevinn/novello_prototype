@@ -102,6 +102,9 @@ ul {
   text-align: center;
   padding: 1%
 }
+#inputChannelName input[type=text] {
+  border-radius: 
+}
 .admin-page-container input[type=submit] {
   border-radius: 5px;
   background: #ffe5e5;
