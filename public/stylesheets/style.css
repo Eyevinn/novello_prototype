@@ -49,13 +49,13 @@ input[type=file] {
 .file-label{
   height: 60px;
   width: 60px;
-  background-color: rgba(255,0,0,0.7);
+  background-color: rgba(255, 53, 53,0.7);
   border-radius: 50%;
   background: rgba(255,0,0,0.7); /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, rgba(255,0,0,0.3), rgba(255,0,0,0.95)); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, rgba(255,0,0,0.3), rgba(255,0,0,0.95)); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, rgba(255,0,0,0.3), rgba(255,0,0,0.95)); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, rgba(255,0,0,0.3), rgba(255,0,0,0.95)); /* Standard syntax */
+  background: -webkit-linear-gradient(left top, rgba(255, 53, 53,0.3), rgba(255, 53, 53,0.95)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(255, 53, 53,0.3), rgba(255, 53, 53,0.95)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(255, 53, 53,0.3), rgba(255, 53, 530.95)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgba(255, 53, 53,0.3), rgba(255, 53, 53,0.95)); /* Standard syntax */
 }
 .file-label input {
   border-radius: 10px;
@@ -75,6 +75,7 @@ input[type=file] {
 #channellist-container {
   text-align: center;
   vertical-align: middle;
+  padding-bottom: 100px;
 }
 .record-video-section {
   padding: 0;
@@ -97,6 +98,15 @@ input[type=text] {
 }
 ul {
   margin: 0 !important;
+}
+.nav-link {
+  padding: 5px;
+  color: rgba(0,0,0,0.5);
+}
+.nav-link:hover {
+  background: rgba(0,0,0,0.1);
+  color: rgba(0,0,0,1);
+  border-radius: 5px;
 }
 .page-heading {
   text-align: center;
@@ -182,7 +192,7 @@ ul {
 	display: table-cell;
   vertical-align: middle;
   text-align: center;
-	background-color: rgba(190, 0, 190, 0.7);
+	background-color: rgba(0,178,178, 0.7);
 	height: 140px;
 	width: 140px;
 	border-style: solid;
