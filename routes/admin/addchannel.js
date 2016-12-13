@@ -23,32 +23,37 @@ router.post('/', function(req, res) {
     //Get channelname from view
     var channelName = req.body.channelName;
 
-    //Get db acces
-    var channellist = db.get('channels');
-    var includes = db.get('includes');
+        if (channelName) {
+            //Get db acces
+            var channellist = db.get('channels');
+            var includes = db.get('includes');
 
-    //add channelname to "channels" collection
-    channellist.insert({
-        "channel" : channelName,
-        "color" : getRandomColor()
-    }, function (err, doc) {
-        if (err) {
-            res.send("There was a problem adding the information to the database.");
+            //add channelname to "channels" collection
+            channellist.insert({
+                "channel" : channelName,
+                "color" : getRandomColor()
+            }, function (err, doc) {
+                if (err) {
+                    res.send("There was a problem adding the information to the database.");
+                }
+                else {
+                  if(req.session.admin){
+                    res.redirect("/admin");
+                  }else{
+                    res.redirect("/channellist");
+                  }
+
+                }
+            });
+            //add to "includes" collection
+            includes.insert({
+                "channel" : channelName,
+            });
+            console.log(includes);
         }
         else {
-          if(req.session.admin){
-            res.redirect("/admin");
-          }else{
-            res.redirect("/channellist");
-          }
-
+            res.send("Can't be empty!");
         }
-    });
-    //add to "includes" collection
-    includes.insert({
-        "channel" : channelName,
-    });
-    console.log(includes);
 });
 
 module.exports = router;
