@@ -1,0 +1,7 @@
+nav.navbar.navbar-default.navbar-fixed-bottom
+  .container
+    div.record-video-section
+      form.upload-form(method="post", action = "/upload",enctype="multipart/form-data")
+        input(type="file" name="upl" accept="video/*" capture="camera")
+      label.file-label(for="upl")
+        input(type="submit")

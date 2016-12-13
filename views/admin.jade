@@ -35,3 +35,46 @@ block content
       input(type="password", placeholder="password", name="psw")
       input(type="checkbox", value=false, name="admin" )
       button#btnSubmit(type="submit") Add
+
+  div.page-heading
+    h1 ADMIN PAGE
+    hr
+  div.admin-page-container.col-lg-12.col-md-12.col-xs-12
+
+    div.col-lg-6.col-md-12
+     div.admin-page#addChannelDiv
+      h4 Add channel
+      hr
+      form#formAddUser(name="adduser",method="post",action="/addchannel")
+          input#inputChannelName(type="text", placeholder="Name of channel", name="channelName", style="font-style: italic;")
+          button.user-buttons#btnSubmit(type="submit") Add
+
+     div.admin-page#RemoveChannelDiv
+      h4 Remove channel
+      hr
+      ul.admin-list
+        each channel, i in channels
+         div.removeChannelList
+          li
+            p.admin-channels= channel.channel
+
+          form#formRemoveChannel.inline-block(method="Post", action="/removechannel")
+            input.remove-input(type="hidden", name="channelName", value=channel.channel)
+            input.user-buttons.remove-link(type="submit", value="Delete")
+
+    div.admin-page.col-lg-6.col-md-12
+     #adminDiv
+      h4 Admins
+      hr
+
+      ul.admin-list
+        each user, i in users
+         div.admin-item
+          li
+            p.user-name= user.username
+
+          form.inline-block(method="Post", action="/removeuser")
+            input.remove-input(type="hidden", name="userName", value=user.username)
+            input.user-buttons.remove-link(type="submit", value="Delete")
+        if user.admin
+          a.admin-text admin

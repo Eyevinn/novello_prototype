@@ -1,16 +1,11 @@
 extends layout
 
 block content
-    h1 Your channels
-    
-    div.col-lg-12.col-md-12.col-xs-12
+    div#channellist-container.col-lg-12.col-md-12.col-xs-12
         each channel, i in channellist
             div.col-lg-4.col-md-6.col-xs-6
-                .channels(id=channel.channel, style='background-color: randomColor;')
+                .channels(id=channel.channel, style='background-color: {channel.color}')
                     p.channel-title= channel.channel
 
+include includes/footer
 
-        div.col-md-12       
-            button.redirect-buttons#redirect-to-add-new-channel-button(type='submit') Add new channel
-        div.col-md-12 
-            button.redirect-buttons#redirect-to-remove-channel-button(type='submit') Remove channel

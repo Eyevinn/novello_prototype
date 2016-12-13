@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
     req.session.admin = true;
   }
   if(req.session.user){
-    res.redirect("/secret");
+    res.redirect("/channellist");
   }else{
     res.render('login');
   }

@@ -1,15 +1,13 @@
 $(document).ready(function () {
-
-	var randomColor;
 	
 	function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    	for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    	}
-    	return color;
-	}
+    	var letters = '0123456789ABCDEF';
+    	var color = '#';
+    		for (var i = 0; i < 6; i++ ) {
+        	color += letters[Math.floor(Math.random() * 16)];
+    		}
+    		return color;
+		}
 
     $(".channels").click(function() {   	
   		var channelID = $(this).attr("id");
@@ -17,7 +15,7 @@ $(document).ready(function () {
   		$(this).css('background-color', 'rgba(0, 0, 0, 0.1)');
 	});
 	
-	$("#redirect-to-add-new-channel-button").click(function() {   	
+	/*$("#redirect-to-add-new-channel-button").click(function() {   	
   		window.location.href = '/addchannel';
 	});
 	$("#redirect-to-remove-channel-button").click(function() {   	
@@ -31,6 +29,6 @@ $(document).ready(function () {
 	$('.channels').each(function(){
 		$(this).css('background-color', getRandomColor());
 		console.log(randomColor);
- 	});
+ 	});*/
 
 });
