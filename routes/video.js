@@ -12,7 +12,12 @@ var db = monk('localhost:27017/novello');
 var bodyParser = require('body-parser');
 /* GET home page. */
 
-
+//Array.prototype.indexOf = function(val) {
+//  for (var i=0; i<this.length; i++) {
+//    if (this[i] == val) return i;
+//  }
+//  return -1;
+//};
 
 router.get('/', function(req, res, next){
   //console.log(req.query);
@@ -22,16 +27,17 @@ router.get('/', function(req, res, next){
     seen.find({"user": req.session.user}, function(err, result2){
       video_list = [];
       for(i = 0; i < result.length; i++){
-        for(x=0; x<result2.length; x++){
-          if(result[i].video == result2[x].video){
-            console.log("same");
-          }else{
-            video_list.push(result[i].video);
-          }
+        video_list.push(result[i].video);
+      }
+      for(i = 0; i<result2.length; i++){
+        console.log(result2[i].video);
+        if(video_list.indexOf(result2[i].video != -1)){
+          video_list.splice(video_list.indexOf(result2[i].video), 1)
         }
       }
+
       console.log(video_list);
-      res.render("video", {"src": video_list})
+      res.render("video", {"src": video_list});
     })
   })
 });
