@@ -4,6 +4,10 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/novello');
 var sha256 = require('sha256');
+var multer = require("multer");
+var path = require("path");
+
+
 
 /* GET CHANNELLIST PAGE */
 router.get('/', function(req, res) {
