@@ -30,13 +30,13 @@ router.get('/', function(req, res, next){
         video_list.push(result[i].video);
       }
       for(i = 0; i<result2.length; i++){
-        console.log(result2[i].video);
+        //console.log(result2[i].video);
         if(video_list.indexOf(result2[i].video != -1)){
           video_list.splice(video_list.indexOf(result2[i].video), 1)
         }
       }
 
-      console.log(video_list);
+      //console.log(video_list);
       res.render("video", {"src": video_list});
     })
   })
@@ -45,7 +45,7 @@ router.get('/', function(req, res, next){
 router.post("/", function(req, res, next){
   seen = db.get("seen");
   seen.insert({"user":req.session.user, "video": req.body.video })
+  res.render("video");
 })
-
 
 module.exports = router;

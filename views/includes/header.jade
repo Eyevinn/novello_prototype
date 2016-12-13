@@ -8,7 +8,10 @@ nav.navbar.navbar-light.bg-faded
 
     .text-muted.p-1
       a.nav-item.nav-link(href="/") Home
+
+      if !online
+        a.nav-item.nav-link(href="/join") Join
       if admin
         a.nav-item.nav-link(href="/admin") Admin
-
-      a.nav-item.nav-link(href="/channellist") Channellist
+      if online
+        a.nav-item.nav-link(href="/channellist") Channellist
