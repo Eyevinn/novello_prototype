@@ -26,6 +26,8 @@ router.get('/', function(req, res, next){
         for(x=0; x<result2.length; x++){
 
           if(result[i].video == result2[x].video){
+            console.log("same");
+          }else{
             video_list.push(result[i].video);
           }
         }
