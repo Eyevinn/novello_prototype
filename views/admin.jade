@@ -1,80 +1,49 @@
 extends layout
 
 block content
-  h1 Admin
-  h2 channels
-  ul.admin-list
-    each channel, i in channels
-      li
-        p= channel.channel
-      form.inline-block(method="Post", action="/removechannel")
-        input.remove-input(type="hidden", name="channelName", value=channel.channel)
-        input.remove-link(type="submit", value="remove")
-      br
-  h2 users
-  ul.admin-list
-    each user, i in users
-      li
-        p= user.username
-      form.inline-block(method="Post", action="/removeuser")
-        input.remove-input(type="hidden", name="userName", value=user.username)
-        input.remove-link(type="submit", value="remove")
-        if user.admin
-          a.admin-text admin
-      br
+ div.page-heading
+   h1 ADMIN PAGE
+   hr
+ div.admin-page-container.col-lg-12.col-md-12.col-xs-12
 
-  h4 Add Channel
-  form#formAddUser(name="addchannel",method="post",action="/addchannel")
-      input#inputChannelName(type="text", placeholder="Name of channel", name="channelName")
-      button#btnSubmit(type="submit") Add
+   div.col-lg-6.col-md-12
+    div.admin-page#addChannelDiv
+     h4 Add channel
+     hr
+     form#formAddUser(name="adduser",method="post",action="/addchannel")
+         input#inputChannelName(type="text", placeholder="Name of channel", name="channelName", style="font-style: italic;")
+         button.user-buttons#btnSubmit(type="submit") Add
 
-  h4 Add User
-  form#formAddUser(name="adduser",method="post",action="/join")
-      input#inputUserName(type="text", placeholder="username", name="username")
-      input(type="email", placeholder="email", name="email")
-      input(type="password", placeholder="password", name="psw")
-      input(type="checkbox", value=false, name="admin" )
-      button#btnSubmit(type="submit") Add
+    div.admin-page#RemoveChannelDiv
+     h4 Remove channel
+     hr
+     ul.admin-list
+       each channel, i in channels
+        div.removeChannelList
+         li
+           p.admin-channels= channel.channel
 
-  div.page-heading
-    h1 ADMIN PAGE
-    hr
-  div.admin-page-container.col-lg-12.col-md-12.col-xs-12
+         form#formRemoveChannel.inline-block(method="Post", action="/removechannel")
+           input.remove-input(type="hidden", name="channelName", value=channel.channel)
+           input.user-buttons.remove-link(type="submit", value="Delete")
 
-    div.col-lg-6.col-md-12
-     div.admin-page#addChannelDiv
-      h4 Add channel
-      hr
-      form#formAddUser(name="adduser",method="post",action="/addchannel")
-          input#inputChannelName(type="text", placeholder="Name of channel", name="channelName", style="font-style: italic;")
-          button.user-buttons#btnSubmit(type="submit") Add
+   div.admin-page.col-lg-6.col-md-12
+    div.admin-page#adminDiv
+     h4 Admins
+     hr
 
-     div.admin-page#RemoveChannelDiv
-      h4 Remove channel
-      hr
-      ul.admin-list
-        each channel, i in channels
-         div.removeChannelList
-          li
-            p.admin-channels= channel.channel
+     ul.admin-list
+       each user, i in users
+        div.admin-item
+         li
+           p.user-name= user.username
 
-          form#formRemoveChannel.inline-block(method="Post", action="/removechannel")
-            input.remove-input(type="hidden", name="channelName", value=channel.channel)
-            input.user-buttons.remove-link(type="submit", value="Delete")
+         form.inline-block(method="Post", action="/removeuser")
+           input.remove-input(type="hidden", name="userName", value=user.username)
+           input.user-buttons.remove-link(type="submit", value="Delete")
+       if user.admin
+         a.admin-text admin
 
-    div.admin-page.col-lg-6.col-md-12
-     #adminDiv
-      h4 Admins
-      hr
-
-      ul.admin-list
-        each user, i in users
-         div.admin-item
-          li
-            p.user-name= user.username
-
-          form.inline-block(method="Post", action="/removeuser")
-            input.remove-input(type="hidden", name="userName", value=user.username)
-            input.user-buttons.remove-link(type="submit", value="Delete")
-        if user.admin
-          a.admin-text admin
+    div.admin-page#userDiv
+     h4 Users
+     hr
