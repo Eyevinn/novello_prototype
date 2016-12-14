@@ -6,7 +6,6 @@ var fs = require("fs");
 var monk = require("monk");
 var db = monk('localhost:27017/novello');
 
-
 function checkDirectorySync(directory) {
   try {
     fs.statSync(directory);
@@ -31,6 +30,12 @@ router.post('/', function(req, res) {
         }
         else {
             res.send('File uploaded!');
+            cmd.get("pwd", function(data){
+              console.log("path: " + data);
+              command = "ffmpeg -i "+data+"/public/uploads/simon/video.mp4 out.m3u8"
+              cmd.run(command);
+              console.log(command);
+            })
         }
     });
     videos.insert({path:'/uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });
