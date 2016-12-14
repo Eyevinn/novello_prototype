@@ -1,7 +1,7 @@
 body {
   padding: 0;
   padding-bottom: 70px; 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Josefin Sans', sans-serif !important;
   vertical-align: middle;
 }
 /************/
@@ -32,6 +32,7 @@ a {
 h1,h2,h3,h4,h5 {
   letter-spacing: 0.05rem;
   font-weight: 600 !important;
+  font-family: 'Amatic SC', cursive, !important;
 }
 
 input[type=file] {
@@ -44,6 +45,9 @@ input[type=file] {
     width: 100px;
     opacity: 0;
     position: absolute;
+}
+.bg-faded {
+ background-color: rgba(0,64,64,0.05) !important;
 }
 
 .file-label{

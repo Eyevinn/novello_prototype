@@ -5,7 +5,7 @@ block content
         each channel, i in channellist
             div.col-lg-4.col-md-6.col-xs-6
                 .channels(id=channel.channel, style='background-color: {channel.color}')
-                    p.channel-title= channel.channel
+                    h3.channel-title= channel.channel
 
     include includes/footer
 
