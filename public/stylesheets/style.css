@@ -70,7 +70,7 @@ input[type=file] {
   border-style: solid;
   border-color: #ffffff;
   border-width: 1px;
-	background: red; /* For browsers that do not support gradients */
+	background: rgba(0,0,0,0.05); /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, rgba(0,0,0,0.05), rgba(229,255,255,0.05)); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(bottom right, rgba(0,0,0,0.05), rgba(229,255,255,0.05)); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, rgba(0,0,0,0.05), rgba(229,255,255,0.05)); /* For Firefox 3.6 to 15 */
@@ -100,6 +100,16 @@ hr {
 input[type=text] {
   width: 60%;
 }
+input {
+  border-radius: 3px;
+  border-style: none;
+  background: rgba(0,0,0,0.05); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, rgba(0,0,0,0.1), rgba(229,255,255,0.1)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(0,0,0,0.1), rgba(229,255,255,0.1)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(0,0,0,0.1), rgba(229,255,255,0.1)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.1), rgba(229,255,255,0.1)); /* Standard syntax */
+}
+
 ul {
   margin: 0 !important;
 }
@@ -118,6 +128,20 @@ ul {
 }
 #inputChannelName input[type=text] {
   border-radius:
+  background-color: #ffffff;
+}
+#login_form {
+  padding: 10px;
+  size: 100%;
+}
+#login_form input {
+  margin: 5px;
+  text-align: center;
+  width: 100%;
+}
+#login_form input[type=submit] {
+  background-color: rgba(0,178,178, 1); 
+  color: #ffffff;
 }
 .admin-page-container input[type=submit] {
   border-radius: 5px;
@@ -128,7 +152,7 @@ ul {
   float: right;
   border-radius: 5px;
   background: #e5ffe5;
-  border-color: #ccffcc;
+  border-style: none;
 }
 .removeChannelList{
   width: 100%;
