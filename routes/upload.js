@@ -18,9 +18,8 @@ function checkDirectorySync(directory) {
 function transcode(file, bitrate){
   clean_filename = file.split("/").slice(-1);
   clean_filename = clean_filename[0].split(".").slice(0);
-
-  checkDirectorySync(file.split("/").slice(0,-1).join("/") + "/hls" + bitrate + clean_filename[0]+"/");
-  output_path = file.split("/").slice(0,-1).join("/") + "/hls"+ bitrate + clean_filename[0]+"/" + clean_filename[0] + ".m3u8";
+  checkDirectorySync(file.split("/").slice(0,-1).join("/") + "/hls" + bitrate + "__" + clean_filename[0]+"/");
+  output_path = file.split("/").slice(0,-1).join("/") + "/hls"+ bitrate +"__"+ clean_filename[0]+"/" + clean_filename[0] + ".m3u8";
   ffmpeg(file)
     .videoCodec('libx264')
     .audioCodec('libmp3lame')
@@ -36,14 +35,14 @@ function transcode(file, bitrate){
 }
 
 router.post('/', function(req, res) {
-    req.session.channel = "testchannel";
+    channel = "testchannel";
     var videos= db.get("videos");
     var includes = db.get("includes");
     var sampleFile;
     sampleFile = req.files.upl;
     console.log(req.session.user);
     dir = "./public/uploads/"+req.session.user;
-    channel = req.session.channel;
+    channel = channel;
     checkDirectorySync(dir);
     file = './public/uploads/' + req.session.user+"/"+ sampleFile.name;
     sampleFile.mv(file, function(err) {
@@ -59,6 +58,6 @@ router.post('/', function(req, res) {
         }
     });
     videos.insert({path:'/uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });
-    includes.insert({video:'/uploads/' + req.session.user+"/"+ sampleFile.name , channel: req.session.channel});
+    includes.insert({video:'/uploads/' + req.session.user+"/"+ sampleFile.name , channel: channel});
 });
 module.exports = router;
