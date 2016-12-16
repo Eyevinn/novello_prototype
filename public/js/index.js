@@ -8,10 +8,10 @@ $(document).ready(function () {
          $('#myModal').modal('show');
   });
 
-  // Change background color when clicking on a channel
+  // Change opacity when clicking on a channel
   $(".channels").click(function() { 
     console.log($(this).color);  	
-  	$(this).css('background-color', 'rgba(0, 0, 0, 0.1)');
+  	$(this).css('opacity', '0.2');
 	});
 
   // Popup - choose which channel to send video to

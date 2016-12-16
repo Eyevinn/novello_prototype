@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
           res.render('channellist', {"channellist" : docs});
       });
     }else{
-      res.redirect("/index");
+      res.redirect("/channellist");
     }
 
 });
