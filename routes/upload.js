@@ -53,9 +53,9 @@ function create_manifest(file, dir){
 
 router.post('/', function(req, res) {
     console.log("VILKEN KANAL?!" + req.body.channel);
-    req.session.channel = "testchannel";
-    channel = "testchannel";
-
+    //req.session.channel = "testchannel";
+    //channel = "testchannel";
+    channel = req.body.channel;
     var videos= db.get("videos");
     var includes = db.get("includes");
     var sampleFile;
