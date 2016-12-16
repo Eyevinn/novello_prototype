@@ -35,12 +35,9 @@ function transcode(file, bitrate){
 }
 
 router.post('/', function(req, res) {
-<<<<<<< HEAD
     console.log("VILKEN KANAL?!" + req.body.channel);
     req.session.channel = "testchannel";
-=======
     channel = "testchannel";
->>>>>>> origin/master
     var videos= db.get("videos");
     var includes = db.get("includes");
     var sampleFile;
