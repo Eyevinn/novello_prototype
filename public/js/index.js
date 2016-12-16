@@ -1,18 +1,37 @@
 $(document).ready(function () {
+  var activeChannelID;
+  var oldChannelID;
 	
-	function getRandomColor() {
-    	var letters = '0123456789ABCDEF';
-    	var color = '#';
-    		for (var i = 0; i < 6; i++ ) {
-        	color += letters[Math.floor(Math.random() * 16)];
-    		}
-    		return color;
-		}
+ $("#fileUpload").on('change', function() {
+         console.log('modal ska poppas upp!!!');
+         $('#myModal').modal('show');
+  });
 
-    $(".channels").click(function() {   	
-  		var channelID = $(this).attr("id");
-  		console.log(channelID);
-  		$(this).css('background-color', 'rgba(0, 0, 0, 0.1)');
+  $(".channels").click(function() {   	
+  	//channelID = $(this).attr("id");
+  	//console.log(channelID);
+  	$(this).css('background-color', 'rgba(0, 0, 0, 0.1)');
 	});
+
+  $(".channel-list").on('click', function() {
+    if (oldChannelID) {
+      oldChannelID.removeClass("change-background"); 
+    }
+    var $this = $(this);
+    activeChannelID = $(this).attr("id");
+
+    console.log("You're clicking on: " + activeChannelID); 
+    $(this).addClass("change-background");
+
+    oldChannelID = $this;
+ 
+    $("#send-to-channel-button").show();
+  });
+
+  $("#send-to-channel-button").click(function() {     
+    channel = activeChannelID;
+    $.post( "/uploads", { channel } );
+  });
+
 
 });
