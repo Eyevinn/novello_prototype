@@ -16,6 +16,7 @@ function checkDirectorySync(directory) {
 }
 
 router.post('/', function(req, res) {
+    console.log("VILKEN KANAL?!" + req.body.channel);
     req.session.channel = "testchannel";
     var videos= db.get("videos");
     var includes = db.get("includes");

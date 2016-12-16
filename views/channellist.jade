@@ -8,4 +8,17 @@ block content
                 .channels(id=channel.channel, style='background-color: {channel.color}')
                     h3.channel-title= channel.channel
 
+        // SEND TO CHANNEL POP-UP
+        .modal.fade.bd-example-modal-lg#myModal(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
+          .modal-dialog.modal-lg
+            .modal-content
+                div.page-heading
+                  h4 Send to
+                div.container  
+                    each channel, i in channellist
+                        .channel-list.col-lg-4.col-md-12.col-xs-12(id=channel.channel)
+                            h3.channel-title-1= channel.channel
+                div.col-lg-12.col-md-12.col-xs-12        
+                  input#send-to-channel-button(type="submit" value="Send" method="")
+
     include includes/footer
