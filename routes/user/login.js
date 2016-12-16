@@ -36,7 +36,7 @@ router.post("/", function(req, res){
 
       req.session.user=_username;
       req.session.admin=result.admin;
-      res.redirect("/secret");
+      res.redirect("/channellist");
     }else{
       res.render("login", {message: "Inloggningen misslyckades"});
     }

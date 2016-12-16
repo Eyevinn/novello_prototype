@@ -28,6 +28,7 @@ var admin = require('./routes/admin/admin');
 var streamer = require("./routes/streamer.js");
 var video = require("./routes/video.js");
 var drop_db = require("./routes/admin/drop_database.js");
+var video_test = require("./routes/video_test");
 
 var db_init = require('./db/db_init');
 var app = express();
@@ -65,6 +66,7 @@ app.use('/admin', admin);
 app.use('/streamer', streamer);
 app.use('/video', video);
 app.use('/delete', drop_db);
+app.use('/video_test', video_test);
 
 
 
