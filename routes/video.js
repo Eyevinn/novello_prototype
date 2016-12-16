@@ -35,7 +35,18 @@ router.get('/', function(req, res, next){
           video_list.splice(video_list.indexOf(result2[i].video), 1)
         }
       }
+      var hls_list = [];
+      for (x in video_list){
+        console.log("x is: "+video_list[x]);
+        if(video_list[x] != undefined){
+          hls = video_list[x].split(".").splice(0)[0] + ".m3u8";
+          hls_list.push(hls)
+        }
 
+
+      }
+      console.log(hls_list);
+      video_list = hls_list.concat(video_list);
       //console.log(video_list);
       res.render("video", {"src": video_list});
     })

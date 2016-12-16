@@ -34,6 +34,23 @@ function transcode(file, bitrate){
     .save(output_path);
 }
 
+function create_manifest(file, dir){
+  console.log(dir);
+  console.log(file);
+  clean_filename = file.split("/").slice(-1);
+  console.log(clean_filename);
+  clean_filename = clean_filename[0].split(".").slice(0);
+  console.log(clean_filename);
+  data = "#EXTM3U"+ "\n" +
+  "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1200000"+ "\n" +
+  "hls64__"+clean_filename[0]+"/"+clean_filename[0]+".m3u8"+ "\n" +
+  "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1500000"+ "\n" +
+  "hls1200__"+clean_filename[0]+"/"+clean_filename[0]+".m3u8";
+  fs.writeFile(dir+"/" + clean_filename[0]+".m3u8", data, function(){
+    console.log("manifest written");
+  })
+}
+
 router.post('/', function(req, res) {
     channel = "testchannel";
     var videos= db.get("videos");
@@ -51,10 +68,11 @@ router.post('/', function(req, res) {
         }
         else {
             res.send('File uploaded!');
-            transcode(file, "200");
-            transcode(file, "400");
-            transcode(file, "1000");
-            transcode(file, "1200");
+            transcode(file, "64");
+            //transcode(file, "400");
+            //transcode(file, "1000");
+            transcode(file, "32");
+            create_manifest(file, dir);
         }
     });
     videos.insert({path:'/uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });

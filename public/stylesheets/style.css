@@ -1,6 +1,6 @@
 body {
   padding: 0;
-  padding-bottom: 70px; 
+  padding-bottom: 70px;
   font-family: 'Josefin Sans', sans-serif !important;
   vertical-align: middle;
 }
@@ -44,7 +44,7 @@ input[type=file] {
     height: 100px;
     width: 100px;
     opacity: 0;
-    
+
 }
 .bg-faded {
  background-color: rgba(0,64,64,0.05) !important;
@@ -140,7 +140,7 @@ ul {
   width: 100%;
 }
 #login_form input[type=submit] {
-  background-color: rgba(0,178,178, 1); 
+  background-color: rgba(0,178,178, 1);
   color: #ffffff;
 }
 .admin-page-container input[type=submit] {
@@ -275,4 +275,8 @@ ul {
 	background: rgba(0,0,0,0.05);
 	margin: 10px;
 	float: left;
+}
+
+video{
+  max-width: 600px;
 }

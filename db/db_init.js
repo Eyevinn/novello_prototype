@@ -22,7 +22,7 @@ function init_db(){
   channels.insert({channel:"General", color: "#ff0000"});
 };
 users.insert({username:"simon", password:sha256("admin"), email:"simon.wallin@eyevinn.se", admin: true});
-users.insert({username:"simon", password:sha256("admin"), email:"simon.wallin@eyevinn.se", admin: true});
+channels.insert({channel:"testchannel", color: "#ff0000"});
 
 
 exports.users = users;
