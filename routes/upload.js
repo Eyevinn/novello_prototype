@@ -52,6 +52,7 @@ function create_manifest(file, dir){
 }
 
 router.post('/', function(req, res) {
+    console.log();
     channel = "testchannel";
     var videos= db.get("videos");
     var includes = db.get("includes");

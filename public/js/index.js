@@ -28,10 +28,9 @@ $(document).ready(function () {
     $("#send-to-channel-button").show();
   });
 
-  $("#send-to-channel-button").click(function() {     
-    channel = activeChannelID;
-    $.post( "/uploads", { channel } );
+  $("#send-to-channel-button").click(function() {  
+    channel = activeChannelID;   
+    $.post( "/uploads", { channel: "channel" } );
   });
-
 
 });
