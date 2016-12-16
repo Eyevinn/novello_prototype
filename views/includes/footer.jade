@@ -3,6 +3,6 @@ nav.navbar.navbar-default.navbar-fixed-bottom
     div.record-video-section
       form.upload-form(method="post", action = "/upload",enctype="multipart/form-data")
         input(id="fileUpload" type="file" name="upl" accept="video/*" capture="camera")
-        //input(type="submit")
+        input(id="change-channelname" type="hidden" name="channel" value="")
         
       label.file-label(for="upl")
