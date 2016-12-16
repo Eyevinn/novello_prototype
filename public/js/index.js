@@ -20,6 +20,9 @@ $(document).ready(function () {
     var $this = $(this);
     activeChannelID = $(this).attr("id");
 
+
+    $("#change-channelname").val(activeChannelID);
+
     console.log("You're clicking on: " + activeChannelID); 
     $(this).addClass("change-background");
 
@@ -30,7 +33,8 @@ $(document).ready(function () {
 
   $("#send-to-channel-button").click(function() {  
     channel = activeChannelID;   
-    $.post( "/uploads", { channel: "channel" } );
+    //$.post( "/upload", { channel: channel } );
+    $(".upload-form").submit();
   });
 
 });

@@ -52,6 +52,8 @@ function create_manifest(file, dir){
 }
 
 router.post('/', function(req, res) {
+    console.log("REQ.BODY: " + req.body);
+    console.log("REQ.FILES: " + req.files);
     console.log("VILKEN KANAL?!" + req.body.channel);
     req.session.channel = "testchannel";
     channel = "testchannel";
@@ -70,7 +72,7 @@ router.post('/', function(req, res) {
             res.send("Upload failed" + err);
         }
         else {
-            res.send('File uploaded!');
+            res.redirect('/channellist');
             transcode(file, "64");
             //transcode(file, "400");
             //transcode(file, "1000");
@@ -80,5 +82,6 @@ router.post('/', function(req, res) {
     });
     videos.insert({path:'/uploads/' + req.session.user+"/"+ sampleFile.name, length:120, user:req.session.user, time: new Date(), });
     includes.insert({video:'/uploads/' + req.session.user+"/"+ sampleFile.name , channel: channel});
+
 });
 module.exports = router;
