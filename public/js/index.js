@@ -21,8 +21,6 @@ $(document).ready(function () {
     activeChannelID = $(this).attr("id");
 
 
-    console.log("You're clicking on: " + activeChannelID);
-
 
     $("#change-channelname").val(activeChannelID);
 
@@ -35,10 +33,6 @@ $(document).ready(function () {
     $("#send-to-channel-button").show();
   });
 
-
-  $("#send-to-channel-button").click(function() {
-    channel = activeChannelID;
-    $.post( "/upload", { channel: channel } );
 
   $("#send-to-channel-button").click(function() {
     channel = activeChannelID;

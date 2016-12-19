@@ -35,19 +35,15 @@ function transcode(file, bitrate){
 }
 
 function create_manifest(file, dir){
-  console.log(dir);
-  console.log(file);
   clean_filename = file.split("/").slice(-1);
-  console.log(clean_filename);
   clean_filename = clean_filename[0].split(".").slice(0);
-  console.log(clean_filename);
   data = "#EXTM3U"+ "\n" +
   "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1200000"+ "\n" +
   "hls64__"+clean_filename[0]+"/"+clean_filename[0]+".m3u8"+ "\n" +
   "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1500000"+ "\n" +
   "hls1200__"+clean_filename[0]+"/"+clean_filename[0]+".m3u8";
   fs.writeFile(dir+"/" + clean_filename[0]+".m3u8", data, function(){
-    console.log("manifest written");
+    console.log("HLS-manifest created");
   })
 }
 
@@ -62,7 +58,6 @@ router.post('/', function(req, res) {
     var includes = db.get("includes");
     var sampleFile;
     sampleFile = req.files.upl;
-    console.log(req.session.user);
     dir = "./public/uploads/"+req.session.user;
     channel = channel;
     checkDirectorySync(dir);
@@ -74,8 +69,6 @@ router.post('/', function(req, res) {
         else {
             res.redirect('/channellist');
             transcode(file, "64");
-            //transcode(file, "400");
-            //transcode(file, "1000");
             transcode(file, "32");
             create_manifest(file, dir);
         }
