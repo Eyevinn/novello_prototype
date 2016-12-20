@@ -1,18 +1,22 @@
 nav.navbar.navbar-light.bg-faded
+  a.navbar-brand(href='#')
+    img(alt='Brand', src='/images/trianglecircle.png', width="50px", class="img-responsive")
 
-  if online
-    a.logout-btn(href="/logout") Log out
-    .user-name= user
+  //if online
+    //a.logout-btn(href="/logout") Log out
+    //.user-name= user
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#exCollapsingNavbar', aria-controls='exCollapsingNavbar', aria-expanded='false', aria-label='Toggle navigation')
   #exCollapsingNavbar.collapse
 
     .text-muted.p-1
       a.nav-item.nav-link(href="/") Home
-
       if !online
         a.nav-item.nav-link(href="/join") Join
       if admin
         a.nav-item.nav-link(href="/admin") Admin
+      br
       if online
         a.nav-item.nav-link(href="/channellist") Channellist
+        a.logout-btn(href="/logout") Log out
+        .user-name= user
 

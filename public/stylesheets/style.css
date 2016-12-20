@@ -55,7 +55,7 @@ input[type=file] {
   color: #ffffff;
 }
 .bg-faded {
- background-color: rgba(0,64,64,0.05) !important;
+ background-color: rgba(255,255,255,1) !important;
 }
 
 .file-label{
@@ -118,6 +118,9 @@ input[type=file] {
   width: 100% !important;
   height: 85px;
   background-color: rgba(0,0,0,0.5) !important;
+}
+.navbar-toggler {
+  float: right;
 }
 form {
     margin: 5px 5px;
@@ -213,7 +216,10 @@ ul {
   position: relative;
 }
 .user-name {
+  padding: 5px;
 	text-transform: capitalize;
+  float: right;
+  font-style: italic;
 }
 .admin-channels {
   text-transform: capitalize;
@@ -225,8 +231,6 @@ ul {
 .remove-input{
   display: none;
   width: 50%
-}
-.admin-list {
 }
 
 .admin-list li{
@@ -240,12 +244,9 @@ ul {
   float: right;
 }
 
-.user-name{
-  margin-right: 1px;
-}
-
 .logout-btn{
   float: right;
+  padding: 5px;
 }
 
 .channels {
@@ -259,9 +260,9 @@ ul {
 	display: inline-block;
 	margin: 5px;
 	position: relative;
-	-webkit-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
-    -moz-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
-    box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
+	-webkit-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
 }
 
 .channels:before {
