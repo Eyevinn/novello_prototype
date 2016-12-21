@@ -21,8 +21,8 @@ function init_db(){
   includes.insert({video:"test", channel: "news"});
   channels.insert({channel:"General", color: "#ff0000"});
 };
-users.insert({username:"simon", password:sha256("admin"), email:"simon.wallin@eyevinn.se", admin: true});
-channels.insert({channel:"testchannel", color: "#ff0000"});
+users.insert({username:"marre", password:sha256("admin"), email:"marilia.bognandi@eyevinn.se", admin: true});
+//channels.insert({channel:"testchannel", color: "#ff0000"});
 
 
 exports.users = users;
