@@ -6,11 +6,12 @@ var db = monk('localhost:27017/novello');
 var sha256 = require('sha256');
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 1)];
-    }
+    //var letters = '0123456789ABCDEF';
+    //var color = '#';
+    var color = Math.floor(Math.random()*16777215).toString(16);
+    //for (var i = 0; i < 6; i++ ) {
+    //    color += letters[Math.floor(Math.random() * 1)];
+   // }
     return color;
 }
 

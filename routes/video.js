@@ -20,14 +20,20 @@ var bodyParser = require('body-parser');
 //};
 
 router.get('/', function(req, res, next){
-  //console.log(req.query);
+
+  videos = db.get("videos");
   includes = db.get("includes");
   seen = db.get("seen");
+
   includes.find({"channel": req.query.channel},function(err, result){
+    console.log("Req query channel: " + req.query.channel);
     seen.find({"user": req.session.user}, function(err, result2){
+      console.log(req.session.user);
       video_list = [];
+      user_video = {};
       for(i = 0; i < result.length; i++){
         video_list.push(result[i].video);
+        console.log("VIDEOLIST 1" + video_list);
       }
       for(i = 0; i<result2.length; i++){
         //console.log(result2[i].video);
@@ -37,20 +43,29 @@ router.get('/', function(req, res, next){
       }
       var hls_list = [];
       for (x in video_list){
-        console.log("x is: "+video_list[x]);
+        console.log("x is: " + video_list[x]);
+        console.log("X" + x);
         if(video_list[x] != undefined){
           hls = video_list[x].split(".").splice(0)[0] + ".m3u8";
           hls_list.push(hls)
         }
-
-
       }
       console.log(hls_list);
       video_list = hls_list.concat(video_list);
-      //console.log(video_list);
+      console.log("VIDEOLIST: " + video_list);
+
+      for(i=0; i < video_list.length; ++i) {
+        console.log("HEJSAN!");
+        videos.find({path:i}, function(err,result){
+          user_video[user] = result.user;
+          console.log("USER VIDEO" + user_video);
+        });
+      }
+      console.log("CONCATENATED: " + video_list);
       res.render("video", {"src": video_list});
     })
   })
+
 });
 
 router.post("/", function(req, res, next){

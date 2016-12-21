@@ -2,6 +2,7 @@ $(document).ready(function () {
   var activeChannelID;
   var oldChannelID;
 
+
 	//Popup when there is a video to be uploaded
  $("#fileUpload").on('change', function() {
          console.log('modal ska poppas upp!!!');

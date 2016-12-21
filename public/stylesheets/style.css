@@ -352,6 +352,12 @@ ul {
 	float: left;
 }
 
+#video-overlay {
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 0;
+}
+
 video{
   max-width: 600px;
 }
