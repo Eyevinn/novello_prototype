@@ -32,7 +32,7 @@ a {
 h1,h2,h3,h4,h5 {
   letter-spacing: 0.05rem;
   font-weight: 600 !important;
-  font-family: 'Amatic SC', cursive, !important;
+  font-family: 'Happy Monkey', cursive !important;
 }
 
 input[type=file] {
@@ -55,7 +55,7 @@ input[type=file] {
   color: #ffffff;
 }
 .bg-faded {
- background-color: rgba(0,64,64,0.05) !important;
+ background-color: rgba(255,255,255,1) !important;
 }
 
 .file-label{
@@ -119,6 +119,12 @@ input[type=file] {
   height: 85px;
   background-color: rgba(0,0,0,0.5) !important;
 }
+.navbar-toggler {
+  float: right;
+  border-style: none !important;
+  margin-right: -15px;
+  margin-top: -5px;
+}
 form {
     margin: 5px 5px;
 }
@@ -145,6 +151,11 @@ input {
 ul {
   margin: 0 !important;
 }
+#exCollapsingNavbar {
+  margin-top: 55px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 5px;
+}
 .nav-link {
   padding: 5px;
   color: rgba(0,0,0,0.5);
@@ -167,6 +178,7 @@ ul {
   size: 100%;
 }
 #login_form input {
+  height: 50px;
   margin: 5px;
   text-align: center;
   width: 100%;
@@ -213,7 +225,10 @@ ul {
   position: relative;
 }
 .user-name {
+  padding: 5px;
 	text-transform: capitalize;
+  float: right;
+  font-style: italic;
 }
 .admin-channels {
   text-transform: capitalize;
@@ -225,8 +240,6 @@ ul {
 .remove-input{
   display: none;
   width: 50%
-}
-.admin-list {
 }
 
 .admin-list li{
@@ -240,12 +253,9 @@ ul {
   float: right;
 }
 
-.user-name{
-  margin-right: 1px;
-}
-
 .logout-btn{
   float: right;
+  padding: 5px;
 }
 
 .channels {
@@ -259,9 +269,9 @@ ul {
 	display: inline-block;
 	margin: 5px;
 	position: relative;
-	-webkit-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
-    -moz-box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
-    box-shadow: 3px 3px 1px 0px rgba(0,0,0,0.7);
+	-webkit-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.5);
 }
 
 .channels:before {
@@ -289,18 +299,6 @@ ul {
   color: rgba(255,255,255,0.9);
 
 }
-/*
-.channel-list h3:active{
-  color: rgba(0,178,178, 0.7);
-  border-style: solid;
-  border-radius: 5px;
-  border-color: rgba(0,178,178, 0.7);
-}
-a:active{
-  color: rgba(0,178,178, 0.7);
-  border-style: solid;
-  border-color: rgba(0,178,178, 0.7);
-}*/
 .change-background {
   border-radius: 5px;
   background-color: rgba(0,178,178, 0.2);
@@ -309,11 +307,11 @@ a:active{
 .channel-title {
   transform: translate(-50%, -50%);
 	z-index: 100;
-	font-size: 1.8em;
+	font-size: 1.55em;
 	color: rgba(255,255,255,1);
 	position: absolute;
 	left: 50%;
-	bottom: 20%;
+	bottom: 25%;
 	text-transform: capitalize;
 	text-shadow: 2px 2px rgba(0,0,0,0.7);
 }
