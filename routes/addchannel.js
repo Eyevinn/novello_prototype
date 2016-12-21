@@ -5,6 +5,15 @@ var monk = require('monk');
 var db = monk('localhost:27017/novello');
 var sha256 = require('sha256');
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 1)];
+    }
+    return color;
+}
+
 /*  GET NEW CHANNEL PAGE */
 router.get('/', function(req, res) {
     res.render('addchannel', { title: 'Add Channel' });
@@ -33,6 +42,7 @@ router.post('/', function(req, res) {
     //add to "includes" collection
     includes.insert({
         "channel" : channelName,
+        "color" : getRandomColor(),
     });
     console.log(includes);
 });

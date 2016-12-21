@@ -59,8 +59,9 @@ input[type=file] {
 }
 
 .file-label{
+  transform: translate(-50%, -50%) translateY(40%);
+
   position: absolute;
-  top: 5px;
   height: 75px;
   width: 75px;
   background-color: rgba(255, 53, 53,0.7);
@@ -70,6 +71,18 @@ input[type=file] {
   background: -o-linear-gradient(bottom right, rgba(255, 53, 53,0.3), rgba(255, 53, 53,0.95)); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, rgba(255, 53, 53,0.3), rgba(255, 53, 530.95)); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, rgba(255, 53, 53,0.3), rgba(255, 53, 53,0.95)); /* Standard syntax */
+}
+.file-label:before{
+  content: '';
+  background-color: rgba(0, 0, 0,0.5);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  transform: translate(-50%, -50%);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 #fileUpload {
   color: black;
@@ -103,7 +116,7 @@ input[type=file] {
 }
 .navbar.navbar-default.navbar-fixed-bottom {
   width: 100% !important;
-  height: 20%;
+  height: 85px;
   background-color: rgba(0,0,0,0.5) !important;
 }
 form {
@@ -236,10 +249,6 @@ ul {
 }
 
 .channels {
-	display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-	background-color: rgba(0,178,178, 0.7);
 	height: 140px;
 	width: 140px;
 	border-style: solid;
@@ -298,12 +307,13 @@ a:active{
 }
 
 .channel-title {
+  transform: translate(-50%, -50%);
 	z-index: 100;
 	font-size: 1.8em;
 	color: rgba(255,255,255,1);
 	position: absolute;
-	left: 25%;
-	bottom: 25%;
+	left: 50%;
+	bottom: 20%;
 	text-transform: capitalize;
 	text-shadow: 2px 2px rgba(0,0,0,0.7);
 }
