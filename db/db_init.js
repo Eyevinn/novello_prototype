@@ -14,7 +14,7 @@ var channels = db.collection("channels");
 
 
 function init_db(){
-  users.insert({username:"simon wallin", password:sha256("sw0049sw"), email:"simon.wallin@eyevinn.se", admin: true});
+  users.insert({username:"simon wallin", password:sha256("admin"), email:"simon.wallin@eyevinn.se", admin: true});
   videos.insert({path:"/uploads/test.mp4", length:120, user:"simon wallin", time: now, });
   follows.insert({username: "simon wallin", channel: "news"});
   seen.insert({username:"simon wallin", video: "test"});
